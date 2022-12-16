@@ -11,15 +11,15 @@ struct GithubResponse: Decodable {
     let items: [Item]
 
     struct Item {
-        let id: String
+        let id: Int
         let avatarURL: String
         let name: String
         let description: String
-        let language: String
+        let language: String?
         let stars: Int
     }
     
-    init(from Decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let data = try _GithubResponse(from: decoder)
         
         var items = [Item]()
@@ -48,11 +48,11 @@ fileprivate struct _GithubResponse: Decodable {
         let owner: Owner
         let full_name: String
         let description: String
-        let language: String
+        let language: String?
         let stargazers_count: Int
         
         struct Owner: Decodable {
-            let id: String
+            let id: Int
             let avatar_url: String
         }
     }

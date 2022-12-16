@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GithubRepository {
-    func fetchData() async throws -> GithubResponse
+    func fetchRepositories(query: String) async throws -> GithubResponse
 }
