@@ -16,6 +16,9 @@
 		3ECB0829294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0828294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift */; };
 		3ECB0837294C6A6000009AC3 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3ECB0836294C6A6000009AC3 /* ComposableArchitecture */; };
 		3ECB0839294C6A6000009AC3 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 3ECB0838294C6A6000009AC3 /* Dependencies */; };
+		3ECB0878294C7B8700009AC3 /* GithubRepsponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0877294C7B8700009AC3 /* GithubRepsponse.swift */; };
+		3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */; };
+		3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		3ECB0822294C687A00009AC3 /* Github-Client-TCAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Github-Client-TCAUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECB0826294C687A00009AC3 /* Github_Client_TCAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAUITests.swift; sourceTree = "<group>"; };
 		3ECB0828294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3ECB0877294C7B8700009AC3 /* GithubRepsponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepsponse.swift; sourceTree = "<group>"; };
+		3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 				3ECB081B294C687A00009AC3 /* Github-Client-TCATests */,
 				3ECB0825294C687A00009AC3 /* Github-Client-TCAUITests */,
 				3ECB0809294C687900009AC3 /* Products */,
+				3ECB0866294C7A6900009AC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +105,8 @@
 		3ECB080A294C687900009AC3 /* Github-Client-TCA */ = {
 			isa = PBXGroup;
 			children = (
+				3ECB087B294C7BBB00009AC3 /* Infrastructure */,
+				3ECB0876294C7B7300009AC3 /* Domain */,
 				3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */,
 				3ECB080D294C687900009AC3 /* ContentView.swift */,
 				3ECB080F294C687A00009AC3 /* Assets.xcassets */,
@@ -129,6 +138,30 @@
 				3ECB0828294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift */,
 			);
 			path = "Github-Client-TCAUITests";
+			sourceTree = "<group>";
+		};
+		3ECB0866294C7A6900009AC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3ECB0876294C7B7300009AC3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3ECB0877294C7B8700009AC3 /* GithubRepsponse.swift */,
+				3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3ECB087B294C7BBB00009AC3 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */,
+				3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */,
 				3ECB080E294C687900009AC3 /* ContentView.swift in Sources */,
+				3ECB0878294C7B8700009AC3 /* GithubRepsponse.swift in Sources */,
 				3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
