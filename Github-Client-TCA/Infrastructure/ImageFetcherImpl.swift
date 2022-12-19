@@ -9,22 +9,33 @@ import Foundation
 import class UIKit.UIImage
 
 protocol ImageFetcher {
-    func fetchImage(with url: URL) async throws -> UIImage?
+    func fetchImage(with url: URL) async throws -> UIImage
 }
 
 final class ImageFetcherImpl: ImageFetcher {
-    private var cache = [URL: UIImage?]()
+    static let shared = ImageFetcherImpl()
     
-    func fetchImage(with url: URL) async throws -> UIImage? {
-        if let cacheImage = cache[url], let cacheImage {
+    private var cache = [URL: UIImage]()
+    
+    private init() {}
+    
+    func fetchImage(with url: URL) async throws -> UIImage {
+        if let cacheImage = cache[url] {
             return cacheImage
         }
         
         let (data, _) = try await URLSession.shared.data(from: url)
-        let image = UIImage(data: data)
+        
+        guard let image = UIImage(data: data) else {
+            throw ImageFetcherError.invalidData
+        }
         
         cache.updateValue(image, forKey: url)
         
         return image
     }
+}
+
+enum ImageFetcherError: Error {
+    case invalidData
 }
