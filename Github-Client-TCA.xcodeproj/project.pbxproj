@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E45AE1C2950539C00755BC1 /* GithubFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1B2950539C00755BC1 /* GithubFeature.swift */; };
 		3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */; };
 		3ECB080E294C687900009AC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080D294C687900009AC3 /* ContentView.swift */; };
 		3ECB0810294C687A00009AC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECB080F294C687A00009AC3 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		3ECB0878294C7B8700009AC3 /* GithubRepsponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0877294C7B8700009AC3 /* GithubRepsponse.swift */; };
 		3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */; };
 		3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */; };
+		3ECB08882950372A00009AC3 /* GithubRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E45AE1B2950539C00755BC1 /* GithubFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFeature.swift; sourceTree = "<group>"; };
 		3ECB0808294C687900009AC3 /* Github-Client-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Client-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAApp.swift; sourceTree = "<group>"; };
 		3ECB080D294C687900009AC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		3ECB0877294C7B8700009AC3 /* GithubRepsponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepsponse.swift; sourceTree = "<group>"; };
 		3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryImpl.swift; sourceTree = "<group>"; };
+		3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		3ECB080A294C687900009AC3 /* Github-Client-TCA */ = {
 			isa = PBXGroup;
 			children = (
+				3ECB0882295036B600009AC3 /* Presentation */,
 				3ECB087B294C7BBB00009AC3 /* Infrastructure */,
 				3ECB0876294C7B7300009AC3 /* Domain */,
 				3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */,
@@ -162,6 +167,15 @@
 				3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		3ECB0882295036B600009AC3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */,
+				3E45AE1B2950539C00755BC1 /* GithubFeature.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,9 +315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ECB08882950372A00009AC3 /* GithubRepositoryCell.swift in Sources */,
 				3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */,
 				3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */,
 				3ECB080E294C687900009AC3 /* ContentView.swift in Sources */,
+				3E45AE1C2950539C00755BC1 /* GithubFeature.swift in Sources */,
 				3ECB0878294C7B8700009AC3 /* GithubRepsponse.swift in Sources */,
 				3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */,
 			);
