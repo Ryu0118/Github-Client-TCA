@@ -10,16 +10,15 @@ import ComposableArchitecture
 
 struct URLImage: View {
     let store: StoreOf<URLImageFeature>
-    let url: URL
     
     var body: some View {
-        WithViewStore(store, observe: \.image) { viewStore in
-            Image(uiImage: viewStore.state)
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            Image(uiImage: viewStore.state.image)
                 .resizable()
                 .scaledToFit()
-                .animation(.default, value: viewStore.state)
+                .animation(.default, value: viewStore.state.image)
                 .onAppear {
-                    viewStore.send(.setImage(url))
+                    viewStore.send(.setImage(viewStore.state.url))
                 }
         }
     }
@@ -28,8 +27,10 @@ struct URLImage: View {
 struct URLImage_Previews: PreviewProvider {
     static var previews: some View {
         URLImage(
-            store: URLImageFeature.live,
-            url: URL(string: "https://github.com/Ryu0118.png")!
+            store: StoreOf<URLImageFeature>(
+                initialState: URLImageFeature.State(url: URL(string: "https://github.com/Ryu0118.png")!),
+                reducer: URLImageFeature()
+            )
         )
     }
 }

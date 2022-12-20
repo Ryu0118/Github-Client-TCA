@@ -14,9 +14,12 @@ struct GithubRepositoryCell: View {
     var body: some View {
         VStack {
             URLImage(
-                store: URLImageFeature.live,
-                url: URL(string: item.avatarURL)!
+                store: StoreOf<URLImageFeature>(
+                    initialState: URLImageFeature.State(url: URL(string: item.avatarURL)!),
+                    reducer: URLImageFeature()
+                )
             )
+            .frame(width: 100, height: 100)
             
             repositoryName
             
@@ -24,6 +27,7 @@ struct GithubRepositoryCell: View {
             
             bottom
         }
+        .padding(5)
     }
     
     var repositoryName: some View {
@@ -32,7 +36,7 @@ struct GithubRepositoryCell: View {
     }
     
     var description: some View {
-        Text(item.description)
+        Text(item.description ?? "No Description")
             .font(.caption)
     }
     
@@ -60,8 +64,9 @@ struct GithubRepositoryCell_Previews: PreviewProvider {
                 name: "Ryu0118/XCContributeRank",
                 description: "XCContributeRank is a CLI tool that allows you to check the number of lines of code, files, and comments for each person in your Xcode project.",
                 language: "Swift",
-                stars: 5000
+                stars: 6
             )
         )
+        .previewLayout(.fixed(width: 350, height: 200))
     }
 }

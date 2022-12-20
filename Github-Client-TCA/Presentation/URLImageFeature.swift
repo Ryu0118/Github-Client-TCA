@@ -11,7 +11,8 @@ import class UIKit.UIImage
 
 struct URLImageFeature: ReducerProtocol {
     struct State: Equatable {
-        var image: UIImage
+        var image: UIImage = UIImage()
+        var url: URL
     }
     
     enum Action: Equatable {
@@ -24,6 +25,8 @@ struct URLImageFeature: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case let .setImage(url):
+            state.url = url
+            
             return .task {
                 await .imageResponse(
                     TaskResult { try await imageFetcher.fetchImage(with: url) }
@@ -36,13 +39,6 @@ struct URLImageFeature: ReducerProtocol {
             return .none
         }
     }
-}
-
-extension URLImageFeature {
-    static let live = StoreOf<Self>(
-        initialState: URLImageFeature.State(image: UIImage()),
-        reducer: URLImageFeature()
-    )
 }
 
 private struct URLImageKey: DependencyKey {
