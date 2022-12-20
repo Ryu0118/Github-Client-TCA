@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E45AE1C2950539C00755BC1 /* GithubFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1B2950539C00755BC1 /* GithubFeature.swift */; };
+		3E45AE1C2950539C00755BC1 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1B2950539C00755BC1 /* AppCore.swift */; };
 		3E45AE20295055F100755BC1 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1F295055F100755BC1 /* URLImage.swift */; };
 		3E45AE222950576B00755BC1 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */; };
 		3E45AE24295068B600755BC1 /* URLImageCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE23295068B600755BC1 /* URLImageCore.swift */; };
@@ -44,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E45AE1B2950539C00755BC1 /* GithubFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFeature.swift; sourceTree = "<group>"; };
+		3E45AE1B2950539C00755BC1 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		3E45AE1F295055F100755BC1 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcherImpl.swift; sourceTree = "<group>"; };
 		3E45AE23295068B600755BC1 /* URLImageCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCore.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */,
-				3E45AE1B2950539C00755BC1 /* GithubFeature.swift */,
+				3E45AE1B2950539C00755BC1 /* AppCore.swift */,
 				3E45AE1F295055F100755BC1 /* URLImage.swift */,
 				3E45AE23295068B600755BC1 /* URLImageCore.swift */,
 			);
@@ -329,7 +329,7 @@
 				3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */,
 				3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */,
 				3ECB080E294C687900009AC3 /* ContentView.swift in Sources */,
-				3E45AE1C2950539C00755BC1 /* GithubFeature.swift in Sources */,
+				3E45AE1C2950539C00755BC1 /* AppCore.swift in Sources */,
 				3E45AE24295068B600755BC1 /* URLImageCore.swift in Sources */,
 				3ECB0878294C7B8700009AC3 /* GithubResponse.swift in Sources */,
 				3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */,

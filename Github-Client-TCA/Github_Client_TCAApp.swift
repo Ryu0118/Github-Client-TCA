@@ -13,9 +13,9 @@ struct Github_Client_TCAApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(
-                store: StoreOf<GithubRepositoryCore>(
-                    initialState: GithubRepositoryCore.State(),
-                    reducer: GithubRepositoryCore()
+                store: StoreOf<AppCore>(
+                    initialState: AppCore.State(),
+                    reducer: AppCore()
                 )
             )
         }

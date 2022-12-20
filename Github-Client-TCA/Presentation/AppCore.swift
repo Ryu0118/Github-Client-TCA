@@ -1,5 +1,5 @@
 //
-//  GithubFeature.swift
+//  AppCore.swift
 //  Github-Client-TCA
 //
 //  Created by ryunosuke.shibuya on 2022/12/19.
@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-struct GithubRepositoryCore: ReducerProtocol {
+struct AppCore: ReducerProtocol {
     struct State: Equatable {
         @BindableState var text = ""
         var items = [GithubResponse.Item]()
