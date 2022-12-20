@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct URLImage: View {
-    let store: StoreOf<URLImageFeature>
+    let store: StoreOf<URLImageCore>
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -27,9 +27,9 @@ struct URLImage: View {
 struct URLImage_Previews: PreviewProvider {
     static var previews: some View {
         URLImage(
-            store: StoreOf<URLImageFeature>(
-                initialState: URLImageFeature.State(url: URL(string: "https://github.com/Ryu0118.png")!),
-                reducer: URLImageFeature()
+            store: StoreOf<URLImageCore>(
+                initialState: URLImageCore.State(url: URL(string: "https://github.com/Ryu0118.png")!),
+                reducer: URLImageCore()
             )
         )
     }

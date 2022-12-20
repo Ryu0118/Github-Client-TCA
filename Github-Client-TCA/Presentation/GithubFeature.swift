@@ -40,6 +40,7 @@ struct GithubRepositoryCore: ReducerProtocol {
             case let .githubResponse(.failure(error)):
                 print(error)
                 return .none
+                
             case .binding(\.$text):
                 if state.text.isEmpty { //SearchBarのtextがisEmptyになった場合, Listを空に
                     state.items = []

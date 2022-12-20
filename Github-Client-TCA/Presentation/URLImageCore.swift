@@ -1,5 +1,5 @@
 //
-//  URLImageFeature.swift
+//  URLImageCore.swift
 //  Github-Client-TCA
 //
 //  Created by ryunosuke.shibuya on 2022/12/19.
@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 import class UIKit.UIImage
 
-struct URLImageFeature: ReducerProtocol {
+struct URLImageCore: ReducerProtocol {
     struct State: Equatable {
         var image: UIImage = UIImage()
         var url: URL
@@ -32,9 +32,11 @@ struct URLImageFeature: ReducerProtocol {
                     TaskResult { try await imageFetcher.fetchImage(with: url) }
                 )
             }
+            
         case let .imageResponse(.success(image)):
             state.image = image
             return .none
+            
         case .imageResponse(_):
             return .none
         }

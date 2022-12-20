@@ -14,9 +14,9 @@ struct GithubRepositoryCell: View {
     var body: some View {
         VStack {
             URLImage(
-                store: StoreOf<URLImageFeature>(
-                    initialState: URLImageFeature.State(url: URL(string: item.avatarURL)!),
-                    reducer: URLImageFeature()
+                store: StoreOf<URLImageCore>(
+                    initialState: URLImageCore.State(url: URL(string: item.avatarURL)!),
+                    reducer: URLImageCore()
                 )
             )
             .frame(width: 100, height: 100)
