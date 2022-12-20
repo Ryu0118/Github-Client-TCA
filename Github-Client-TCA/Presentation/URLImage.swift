@@ -18,7 +18,7 @@ struct URLImage: View {
                 .scaledToFit()
                 .animation(.default, value: viewStore.state.image)
                 .onAppear {
-                    viewStore.send(.setImage(viewStore.state.url))
+                    viewStore.send(.setImage)
                 }
         }
     }

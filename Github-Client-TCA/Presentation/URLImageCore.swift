@@ -12,11 +12,11 @@ import class UIKit.UIImage
 struct URLImageCore: ReducerProtocol {
     struct State: Equatable {
         var image: UIImage = UIImage()
-        var url: URL
+        let url: URL
     }
     
     enum Action: Equatable {
-        case setImage(URL)
+        case setImage
         case imageResponse(TaskResult<UIImage>)
     }
     
@@ -24,12 +24,10 @@ struct URLImageCore: ReducerProtocol {
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case let .setImage(url):
-            state.url = url
-            
-            return .task {
+        case .setImage:
+            return .task { [imageUrl = state.url] in
                 await .imageResponse(
-                    TaskResult { try await imageFetcher.fetchImage(with: url) }
+                    TaskResult { try await imageFetcher.fetchImage(with: imageUrl) }
                 )
             }
             

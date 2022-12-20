@@ -13,7 +13,7 @@ import ComposableArchitecture
 final class AppCoreSpec: QuickSpec {
 
     override func spec() {
-        context("validate appcore reducer behavior") {
+        context("validate appCore behavior") {
             it("state.itemsにGithubResponseのmockのitemsが格納されているか") { @MainActor in
                 let store = TestStore(
                     initialState: AppCore.State(),
