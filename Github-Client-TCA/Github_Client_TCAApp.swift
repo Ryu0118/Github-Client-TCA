@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct Github_Client_TCAApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(
+                store: StoreOf<GithubRepositoryCore>(
+                    initialState: GithubRepositoryCore.State(),
+                    reducer: GithubRepositoryCore()
+                )
+            )
         }
     }
 }

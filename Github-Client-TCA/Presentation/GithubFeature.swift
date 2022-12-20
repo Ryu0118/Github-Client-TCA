@@ -7,34 +7,50 @@
 
 import ComposableArchitecture
 
-struct GithubRepositoryFeature: ReducerProtocol {
+struct GithubRepositoryCore: ReducerProtocol {
     struct State: Equatable {
-        var items: [GithubResponse.Item]
+        @BindableState var text = ""
+        var items = [GithubResponse.Item]()
     }
     
-    enum Action: Equatable {
-        case searchButtonTapped(String)
+    enum Action: Equatable, BindableAction {
+        case searchButtonTapped
         case githubResponse(TaskResult<[GithubResponse.Item]>)
+        case binding(BindingAction<State>)
     }
     
     @Dependency(\.githubRepository) var githubRepository
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {
-        case let .searchButtonTapped(text):
-            return .task {
-                await .githubResponse(
-                    TaskResult { try await self.githubRepository.fetchRepositories(query: text).items }
-                )
+    var body: some ReducerProtocol<State, Action> {
+        BindingReducer()
+        
+        Reduce { state, action in
+            switch action {
+            case .searchButtonTapped:
+                return .task { [query = state.text] in
+                    await .githubResponse(
+                        TaskResult { try await githubRepository.fetchRepositories(query: query).items }
+                    )
+                }
+                
+            case let .githubResponse(.success(items)):
+                state.items = items
+                return .none
+                
+            case let .githubResponse(.failure(error)):
+                print(error)
+                return .none
+            case .binding(\.$text):
+                if state.text.isEmpty { //SearchBarのtextがisEmptyになった場合, Listを空に
+                    state.items = []
+                }
+                
+                return .none
+            case .binding:
+                return .none
             }
-            
-        case let .githubResponse(.success(items)):
-            state.items = items
-            return .none
-            
-        case .githubResponse(.failure):
-            return .none
         }
+        
     }
 
 }

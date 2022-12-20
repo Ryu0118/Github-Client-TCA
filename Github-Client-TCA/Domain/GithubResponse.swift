@@ -1,5 +1,5 @@
 //
-//  GithubRepsponse.swift
+//  GithubResponse.swift
 //  Github-Client-TCA
 //
 //  Created by ryunosuke.shibuya on 2022/12/16.
@@ -10,11 +10,11 @@ import Foundation
 struct GithubResponse: Decodable {
     let items: [Item]
 
-    struct Item {
+    struct Item: Identifiable, Equatable {
         let id: Int
         let avatarURL: String
         let name: String
-        let description: String
+        let description: String?
         let language: String?
         let stars: Int
     }
@@ -47,7 +47,7 @@ fileprivate struct _GithubResponse: Decodable {
     struct Item: Decodable {
         let owner: Owner
         let full_name: String
-        let description: String
+        let description: String?
         let language: String?
         let stargazers_count: Int
         

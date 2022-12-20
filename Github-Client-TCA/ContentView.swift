@@ -6,21 +6,35 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContentView: View {
+    let store: StoreOf<GithubRepositoryCore>
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            NavigationView {
+                List {
+                    ForEach(viewStore.state.items) { item in
+                        GithubRepositoryCell(item: item)
+                    }
+                }
+            }
+            .searchable(
+                text: viewStore.binding(\.$text),
+                prompt: "リポジトリを検索"
+            )
+            .onSubmit(of: .search) {
+                viewStore.send(.searchButtonTapped)
+            }
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(
+            store: .init(initialState: GithubRepositoryCore.State(), reducer: GithubRepositoryCore())
+        )
     }
 }
