@@ -47,6 +47,7 @@ struct AppCore: ReducerProtocol {
                 }
                 
                 return .none
+                
             case .binding:
                 return .none
             }
