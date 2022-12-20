@@ -39,6 +39,10 @@ struct GithubResponse: Decodable {
         
         self.items = items
     }
+    
+    init(items: [Item]) {
+        self.items = items
+    }
 }
 
 fileprivate struct _GithubResponse: Decodable {

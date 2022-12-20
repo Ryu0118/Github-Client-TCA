@@ -11,6 +11,8 @@
 		3E45AE20295055F100755BC1 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1F295055F100755BC1 /* URLImage.swift */; };
 		3E45AE222950576B00755BC1 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */; };
 		3E45AE24295068B600755BC1 /* URLImageCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE23295068B600755BC1 /* URLImageCore.swift */; };
+		3EA768582951A409006718F7 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA768572951A409006718F7 /* Quick */; };
+		3EA7685A2951A4B3006718F7 /* AppCoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA768592951A4B3006718F7 /* AppCoreSpec.swift */; };
 		3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */; };
 		3ECB080E294C687900009AC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080D294C687900009AC3 /* ContentView.swift */; };
 		3ECB0810294C687A00009AC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECB080F294C687A00009AC3 /* Assets.xcassets */; };
@@ -48,6 +50,7 @@
 		3E45AE1F295055F100755BC1 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcherImpl.swift; sourceTree = "<group>"; };
 		3E45AE23295068B600755BC1 /* URLImageCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCore.swift; sourceTree = "<group>"; };
+		3EA768592951A4B3006718F7 /* AppCoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoreSpec.swift; sourceTree = "<group>"; };
 		3ECB0808294C687900009AC3 /* Github-Client-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Client-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAApp.swift; sourceTree = "<group>"; };
 		3ECB080D294C687900009AC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA768582951A409006718F7 /* Quick in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECB081C294C687A00009AC3 /* Github_Client_TCATests.swift */,
+				3EA768592951A4B3006718F7 /* AppCoreSpec.swift */,
 			);
 			path = "Github-Client-TCATests";
 			sourceTree = "<group>";
@@ -225,6 +230,9 @@
 				3ECB081A294C687A00009AC3 /* PBXTargetDependency */,
 			);
 			name = "Github-Client-TCATests";
+			packageProductDependencies = (
+				3EA768572951A409006718F7 /* Quick */,
+			);
 			productName = "Github-Client-TCATests";
 			productReference = 3ECB0818294C687A00009AC3 /* Github-Client-TCATests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -281,6 +289,7 @@
 			mainGroup = 3ECB07FF294C687900009AC3;
 			packageReferences = (
 				3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				3EA768562951A409006718F7 /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = 3ECB0809294C687900009AC3 /* Products */;
 			projectDirPath = "";
@@ -342,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ECB081D294C687A00009AC3 /* Github_Client_TCATests.swift in Sources */,
+				3EA7685A2951A4B3006718F7 /* AppCoreSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +670,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3EA768562951A409006718F7 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -671,6 +689,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3EA768572951A409006718F7 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EA768562951A409006718F7 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
 		3ECB0836294C6A6000009AC3 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
