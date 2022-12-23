@@ -7,25 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E45AE1C2950539C00755BC1 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1B2950539C00755BC1 /* AppCore.swift */; };
-		3E45AE20295055F100755BC1 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE1F295055F100755BC1 /* URLImage.swift */; };
-		3E45AE222950576B00755BC1 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */; };
-		3E45AE24295068B600755BC1 /* URLImageCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45AE23295068B600755BC1 /* URLImageCore.swift */; };
+		3E6876E329558952008ACF10 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6876E229558952008ACF10 /* Presentation */; };
+		3E6876E62955907A008ACF10 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6876E52955907A008ACF10 /* Domain */; };
+		3E6876E82955907F008ACF10 /* Infrastructure in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6876E72955907F008ACF10 /* Infrastructure */; };
+		3E6876F02955977F008ACF10 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6876EF2955977F008ACF10 /* ComposableArchitecture */; };
+		3E6876F22955977F008ACF10 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 3E6876F12955977F008ACF10 /* Dependencies */; };
 		3EA768582951A409006718F7 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA768572951A409006718F7 /* Quick */; };
 		3EA7685A2951A4B3006718F7 /* AppCoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA768592951A4B3006718F7 /* AppCoreSpec.swift */; };
 		3EA7685C2951AF7A006718F7 /* URLImageCoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA7685B2951AF7A006718F7 /* URLImageCoreSpec.swift */; };
-		3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */; };
-		3ECB080E294C687900009AC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080D294C687900009AC3 /* ContentView.swift */; };
+		3ECB080C294C687900009AC3 /* GithubClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB080B294C687900009AC3 /* GithubClientApp.swift */; };
 		3ECB0810294C687A00009AC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECB080F294C687A00009AC3 /* Assets.xcassets */; };
 		3ECB0813294C687A00009AC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECB0812294C687A00009AC3 /* Preview Assets.xcassets */; };
 		3ECB0827294C687A00009AC3 /* Github_Client_TCAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0826294C687A00009AC3 /* Github_Client_TCAUITests.swift */; };
 		3ECB0829294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0828294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift */; };
-		3ECB0837294C6A6000009AC3 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3ECB0836294C6A6000009AC3 /* ComposableArchitecture */; };
-		3ECB0839294C6A6000009AC3 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 3ECB0838294C6A6000009AC3 /* Dependencies */; };
-		3ECB0878294C7B8700009AC3 /* GithubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0877294C7B8700009AC3 /* GithubResponse.swift */; };
-		3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */; };
-		3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */; };
-		3ECB08882950372A00009AC3 /* GithubRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,25 +40,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E45AE1B2950539C00755BC1 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
-		3E45AE1F295055F100755BC1 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
-		3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcherImpl.swift; sourceTree = "<group>"; };
-		3E45AE23295068B600755BC1 /* URLImageCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCore.swift; sourceTree = "<group>"; };
+		3E6876E429559071008ACF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3EA768592951A4B3006718F7 /* AppCoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoreSpec.swift; sourceTree = "<group>"; };
 		3EA7685B2951AF7A006718F7 /* URLImageCoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCoreSpec.swift; sourceTree = "<group>"; };
+		3EA7685F29558273006718F7 /* Github-Client-TCA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Github-Client-TCA"; path = ..; sourceTree = "<group>"; };
 		3ECB0808294C687900009AC3 /* Github-Client-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Client-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAApp.swift; sourceTree = "<group>"; };
-		3ECB080D294C687900009AC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3ECB080B294C687900009AC3 /* GithubClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubClientApp.swift; sourceTree = "<group>"; };
 		3ECB080F294C687A00009AC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ECB0812294C687A00009AC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3ECB0818294C687A00009AC3 /* Github-Client-TCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Github-Client-TCATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECB0822294C687A00009AC3 /* Github-Client-TCAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Github-Client-TCAUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECB0826294C687A00009AC3 /* Github_Client_TCAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAUITests.swift; sourceTree = "<group>"; };
 		3ECB0828294C687A00009AC3 /* Github_Client_TCAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_Client_TCAUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3ECB0877294C7B8700009AC3 /* GithubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubResponse.swift; sourceTree = "<group>"; };
-		3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
-		3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryImpl.swift; sourceTree = "<group>"; };
-		3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +59,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ECB0837294C6A6000009AC3 /* ComposableArchitecture in Frameworks */,
-				3ECB0839294C6A6000009AC3 /* Dependencies in Frameworks */,
+				3E6876F22955977F008ACF10 /* Dependencies in Frameworks */,
+				3E6876E62955907A008ACF10 /* Domain in Frameworks */,
+				3E6876E82955907F008ACF10 /* Infrastructure in Frameworks */,
+				3E6876F02955977F008ACF10 /* ComposableArchitecture in Frameworks */,
+				3E6876E329558952008ACF10 /* Presentation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECB080A294C687900009AC3 /* Github-Client-TCA */,
+				3EA7685F29558273006718F7 /* Github-Client-TCA */,
 				3ECB081B294C687A00009AC3 /* Github-Client-TCATests */,
 				3ECB0825294C687A00009AC3 /* Github-Client-TCAUITests */,
 				3ECB0809294C687900009AC3 /* Products */,
@@ -119,10 +110,8 @@
 		3ECB080A294C687900009AC3 /* Github-Client-TCA */ = {
 			isa = PBXGroup;
 			children = (
-				3ECB0882295036B600009AC3 /* Presentation */,
-				3ECB087B294C7BBB00009AC3 /* Infrastructure */,
-				3ECB0876294C7B7300009AC3 /* Domain */,
-				3ECB080B294C687900009AC3 /* Github_Client_TCAApp.swift */,
+				3E6876E429559071008ACF10 /* Info.plist */,
+				3ECB080B294C687900009AC3 /* GithubClientApp.swift */,
 				3ECB080F294C687A00009AC3 /* Assets.xcassets */,
 				3ECB0811294C687A00009AC3 /* Preview Content */,
 			);
@@ -162,36 +151,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3ECB0876294C7B7300009AC3 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				3ECB0877294C7B8700009AC3 /* GithubResponse.swift */,
-				3ECB0879294C7B9A00009AC3 /* GithubRepository.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		3ECB087B294C7BBB00009AC3 /* Infrastructure */ = {
-			isa = PBXGroup;
-			children = (
-				3ECB087C294C7BCA00009AC3 /* GithubRepositoryImpl.swift */,
-				3E45AE212950576B00755BC1 /* ImageFetcherImpl.swift */,
-			);
-			path = Infrastructure;
-			sourceTree = "<group>";
-		};
-		3ECB0882295036B600009AC3 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				3ECB080D294C687900009AC3 /* ContentView.swift */,
-				3ECB08872950372A00009AC3 /* GithubRepositoryCell.swift */,
-				3E45AE1B2950539C00755BC1 /* AppCore.swift */,
-				3E45AE1F295055F100755BC1 /* URLImage.swift */,
-				3E45AE23295068B600755BC1 /* URLImageCore.swift */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,8 +168,11 @@
 			);
 			name = "Github-Client-TCA";
 			packageProductDependencies = (
-				3ECB0836294C6A6000009AC3 /* ComposableArchitecture */,
-				3ECB0838294C6A6000009AC3 /* Dependencies */,
+				3E6876E229558952008ACF10 /* Presentation */,
+				3E6876E52955907A008ACF10 /* Domain */,
+				3E6876E72955907F008ACF10 /* Infrastructure */,
+				3E6876EF2955977F008ACF10 /* ComposableArchitecture */,
+				3E6876F12955977F008ACF10 /* Dependencies */,
 			);
 			productName = "Github-Client-TCA";
 			productReference = 3ECB0808294C687900009AC3 /* Github-Client-TCA.app */;
@@ -288,8 +250,8 @@
 			);
 			mainGroup = 3ECB07FF294C687900009AC3;
 			packageReferences = (
-				3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				3EA768562951A409006718F7 /* XCRemoteSwiftPackageReference "Quick" */,
+				3E6876EE2955977F008ACF10 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 3ECB0809294C687900009AC3 /* Products */;
 			projectDirPath = "";
@@ -333,16 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E45AE222950576B00755BC1 /* ImageFetcherImpl.swift in Sources */,
-				3ECB08882950372A00009AC3 /* GithubRepositoryCell.swift in Sources */,
-				3ECB087D294C7BCA00009AC3 /* GithubRepositoryImpl.swift in Sources */,
-				3ECB087A294C7B9A00009AC3 /* GithubRepository.swift in Sources */,
-				3ECB080E294C687900009AC3 /* ContentView.swift in Sources */,
-				3E45AE1C2950539C00755BC1 /* AppCore.swift in Sources */,
-				3E45AE24295068B600755BC1 /* URLImageCore.swift in Sources */,
-				3ECB0878294C7B8700009AC3 /* GithubResponse.swift in Sources */,
-				3ECB080C294C687900009AC3 /* Github_Client_TCAApp.swift in Sources */,
-				3E45AE20295055F100755BC1 /* URLImage.swift in Sources */,
+				3ECB080C294C687900009AC3 /* GithubClientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +458,7 @@
 				DEVELOPMENT_TEAM = G8RH83B4LT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Github-Client-TCA/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -534,6 +488,7 @@
 				DEVELOPMENT_TEAM = G8RH83B4LT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Github-Client-TCA/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -670,6 +625,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3E6876EE2955977F008ACF10 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 0.47.2;
+			};
+		};
 		3EA768562951A409006718F7 /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
@@ -678,31 +641,35 @@
 				kind = branch;
 			};
 		};
-		3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3E6876E229558952008ACF10 /* Presentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Presentation;
+		};
+		3E6876E52955907A008ACF10 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		3E6876E72955907F008ACF10 /* Infrastructure */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Infrastructure;
+		};
+		3E6876EF2955977F008ACF10 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E6876EE2955977F008ACF10 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		3E6876F12955977F008ACF10 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E6876EE2955977F008ACF10 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
 		3EA768572951A409006718F7 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3EA768562951A409006718F7 /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
-		};
-		3ECB0836294C6A6000009AC3 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-		3ECB0838294C6A6000009AC3 /* Dependencies */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3ECB0835294C6A6000009AC3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = Dependencies;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

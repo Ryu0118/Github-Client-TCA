@@ -6,20 +6,17 @@
 //
 
 import Foundation
+import Domain
 import class UIKit.UIImage
 
-protocol ImageFetcher {
-    func fetchImage(with url: URL) async throws -> UIImage
-}
-
-final class ImageFetcherImpl: ImageFetcher {
-    static let shared = ImageFetcherImpl()
+public final class ImageFetcherImpl: ImageFetcher {
+    public static let shared = ImageFetcherImpl()
     
     private var cache = [URL: UIImage]()
     
     private init() {}
     
-    func fetchImage(with url: URL) async throws -> UIImage {
+    public func fetchImage(with url: URL) async throws -> UIImage {
         if let cacheImage = cache[url] {
             return cacheImage
         }

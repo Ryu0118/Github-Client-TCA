@@ -7,11 +7,16 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Domain
 
-struct ContentView: View {
-    let store: StoreOf<AppCore>
+public struct ContentView: View {
+    public let store: StoreOf<AppCore>
     
-    var body: some View {
+    public init(store: StoreOf<AppCore>) {
+        self.store = store
+    }
+    
+    public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationView {
                 List {

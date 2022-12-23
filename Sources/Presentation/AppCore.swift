@@ -6,14 +6,18 @@
 //
 
 import ComposableArchitecture
+import Domain
+import Infrastructure
 
-struct AppCore: ReducerProtocol {
-    struct State: Equatable {
-        @BindableState var text = ""
-        var items = [GithubResponse.Item]()
+public struct AppCore: ReducerProtocol {
+    public struct State: Equatable {
+        @BindableState public var text = ""
+        public var items = [GithubResponse.Item]()
+        
+        public init() {}
     }
     
-    enum Action: Equatable, BindableAction {
+    public enum Action: Equatable, BindableAction {
         case searchButtonTapped
         case githubResponse(TaskResult<[GithubResponse.Item]>)
         case binding(BindingAction<State>)
@@ -21,7 +25,9 @@ struct AppCore: ReducerProtocol {
     
     @Dependency(\.githubRepository) var githubRepository
     
-    var body: some ReducerProtocol<State, Action> {
+    public init() {}
+    
+    public var body: some ReducerProtocol<State, Action> {
         BindingReducer()
         
         Reduce { state, action in
@@ -57,9 +63,8 @@ struct AppCore: ReducerProtocol {
 
 }
 
-// MARK: - Dependency
-private enum GithubRepositoryKey: DependencyKey {
-    static let liveValue: GithubRepository = GithubRepositoryImpl()
+public enum GithubRepositoryKey: DependencyKey {
+    public static let liveValue: GithubRepository = GithubRepositoryImpl()
 }
 
 extension DependencyValues {

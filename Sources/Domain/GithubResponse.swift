@@ -7,19 +7,28 @@
 
 import Foundation
 
-struct GithubResponse: Decodable {
-    let items: [Item]
+public struct GithubResponse: Decodable {
+    public let items: [Item]
 
-    struct Item: Identifiable, Equatable {
-        let id: Int
-        let avatarURL: String
-        let name: String
-        let description: String?
-        let language: String?
-        let stars: Int
+    public struct Item: Identifiable, Equatable {
+        public let id: Int
+        public let avatarURL: String
+        public let name: String
+        public let description: String?
+        public let language: String?
+        public let stars: Int
+        
+        public init(id: Int, avatarURL: String, name: String, description: String?, language: String?, stars: Int) {
+            self.id = id
+            self.avatarURL = avatarURL
+            self.name = name
+            self.description = description
+            self.language = language
+            self.stars = stars
+        }
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let data = try _GithubResponse(from: decoder)
         
         var items = [Item]()
@@ -40,7 +49,7 @@ struct GithubResponse: Decodable {
         self.items = items
     }
     
-    init(items: [Item]) {
+    public init(items: [Item]) {
         self.items = items
     }
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol GithubRepository {
+public protocol GithubRepository {
     func fetchRepositories(query: String) async throws -> GithubResponse
 }

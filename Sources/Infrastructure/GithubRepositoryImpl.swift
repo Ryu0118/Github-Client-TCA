@@ -6,16 +6,16 @@
 //
 
 import Foundation
+import Domain
 
-struct GithubRepositoryImpl: GithubRepository {
-    
-    func fetchRepositories(query: String) async throws -> GithubResponse {
+public struct GithubRepositoryImpl: GithubRepository {
+    public init() {}
+    public func fetchRepositories(query: String) async throws -> GithubResponse {
         let url = try buildURL(query: query)
         let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
         return try JSONDecoder().decode(GithubResponse.self, from: data)
     }
-    
 }
 
 private extension GithubRepositoryImpl {
