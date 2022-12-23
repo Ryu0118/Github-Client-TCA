@@ -36,11 +36,11 @@ public struct GithubResponse: Decodable {
         for item in data.items {
             let item = Item(
                 id: item.owner.id,
-                avatarURL: item.owner.avatar_url,
-                name: item.full_name,
+                avatarURL: item.owner.avatarUrl,
+                name: item.fullName,
                 description: item.description,
                 language: item.language,
-                stars: item.stargazers_count
+                stars: item.stargazersCount
             )
             
             items.append(item)
@@ -54,19 +54,36 @@ public struct GithubResponse: Decodable {
     }
 }
 
-fileprivate struct _GithubResponse: Decodable {
+private struct _GithubResponse: Decodable {
     let items: [Item]
     
     struct Item: Decodable {
         let owner: Owner
-        let full_name: String
+        let fullName: String
         let description: String?
         let language: String?
-        let stargazers_count: Int
+        let stargazersCount: Int
         
         struct Owner: Decodable {
             let id: Int
-            let avatar_url: String
+            let avatarUrl: String
         }
+    }
+}
+
+private extension _GithubResponse.Item {
+    enum CodingKeys: String, CodingKey {
+        case owner
+        case fullName = "full_name"
+        case description
+        case language
+        case stargazersCount = "stargazers_count"
+    }
+}
+
+private extension _GithubResponse.Item.Owner {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case avatarUrl = "avatar_url"
     }
 }
