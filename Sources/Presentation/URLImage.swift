@@ -11,6 +11,13 @@ import ComposableArchitecture
 struct URLImage: View {
     let store: StoreOf<URLImageCore>
     
+    init(url: URL) {
+        store = StoreOf<URLImageCore>(
+            initialState: URLImageCore.State(url: url),
+            reducer: URLImageCore()
+        )
+    }
+    
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             Image(uiImage: viewStore.state.image)
@@ -26,11 +33,6 @@ struct URLImage: View {
 
 struct URLImage_Previews: PreviewProvider {
     static var previews: some View {
-        URLImage(
-            store: StoreOf<URLImageCore>(
-                initialState: URLImageCore.State(url: URL(string: "https://github.com/Ryu0118.png")!),
-                reducer: URLImageCore()
-            )
-        )
+        URLImage(url: URL(string: "https://github.com/Ryu0118.png")!)
     }
 }
