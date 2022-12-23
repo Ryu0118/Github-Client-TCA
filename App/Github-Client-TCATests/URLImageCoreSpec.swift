@@ -21,7 +21,7 @@ final class URLImageCoreSpec: QuickSpec {
                     reducer: URLImageCore()
                 )
                 
-                await store.send(.setImage)
+                await store.send(.onAppear)
                 await store.receive(.imageResponse(.success(UIImage(systemName: "star")!))) { state in
                     state.image = UIImage(systemName: "star")!
                 }

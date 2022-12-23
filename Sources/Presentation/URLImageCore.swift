@@ -18,7 +18,7 @@ struct URLImageCore: ReducerProtocol {
     }
     
     enum Action: Equatable {
-        case setImage
+        case onAppear
         case imageResponse(TaskResult<UIImage>)
     }
     
@@ -26,7 +26,7 @@ struct URLImageCore: ReducerProtocol {
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case .setImage:
+        case .onAppear:
             return .task { [imageUrl = state.url] in
                 await .imageResponse(
                     TaskResult { try await imageFetcher.fetchImage(with: imageUrl) }
