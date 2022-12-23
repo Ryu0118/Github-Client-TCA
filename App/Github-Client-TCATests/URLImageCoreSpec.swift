@@ -8,7 +8,8 @@
 import XCTest
 import Quick
 import ComposableArchitecture
-@testable import Github_Client_TCA
+@testable import Presentation
+@testable import Domain
 
 final class URLImageCoreSpec: QuickSpec {
 
@@ -19,7 +20,6 @@ final class URLImageCoreSpec: QuickSpec {
                     initialState: URLImageCore.State(url: URL(string: "https://github.com/Ryu0118.png")!),
                     reducer: URLImageCore()
                 )
-                store.dependencies.imageFetcher = ImageFetcherMock()
                 
                 await store.send(.setImage)
                 await store.receive(.imageResponse(.success(UIImage(systemName: "star")!))) { state in
@@ -29,10 +29,4 @@ final class URLImageCoreSpec: QuickSpec {
         }
     }
 
-}
-
-final class ImageFetcherMock: ImageFetcher {
-    func fetchImage(with url: URL) async throws -> UIImage {
-        UIImage(systemName: "star")!
-    }
 }

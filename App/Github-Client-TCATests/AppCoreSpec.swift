@@ -8,7 +8,8 @@
 import XCTest
 import Quick
 import ComposableArchitecture
-@testable import Github_Client_TCA
+@testable import Presentation
+@testable import Domain
 
 final class AppCoreSpec: QuickSpec {
 
@@ -19,7 +20,6 @@ final class AppCoreSpec: QuickSpec {
                     initialState: AppCore.State(),
                     reducer: AppCore()
                 )
-                store.dependencies.githubRepository = GithubRepositoryMock()
                 
                 await store.send(.searchButtonTapped)
                 await store.receive(.githubResponse(.success(GithubResponse.mock().items))) { state in
@@ -32,7 +32,6 @@ final class AppCoreSpec: QuickSpec {
                     initialState: AppCore.State(),
                     reducer: AppCore()
                 )
-                store.dependencies.githubRepository = GithubRepositoryMock()
                 
                 store.send(.set(\.$text, "Test")) {
                     $0.text = "Test"
@@ -44,7 +43,6 @@ final class AppCoreSpec: QuickSpec {
                     initialState: AppCore.State(text: "Test"),
                     reducer: AppCore()
                 )
-                store.dependencies.githubRepository = GithubRepositoryMock()
                 
                 store.send(.set(\.$text, "")) {
                     $0.text = ""
@@ -54,23 +52,4 @@ final class AppCoreSpec: QuickSpec {
         }
     }
 
-}
-
-struct GithubRepositoryMock: GithubRepository {
-    func fetchRepositories(query: String) async throws -> GithubResponse {
-        .mock()
-    }
-}
-
-extension GithubResponse {
-    static func mock() -> GithubResponse {
-        .init(items: [
-            .init(id: 1, avatarURL: "", name: "", description: "", language: "", stars: 1),
-            .init(id: 2, avatarURL: "", name: "", description: "", language: "", stars: 1),
-            .init(id: 3, avatarURL: "", name: "", description: "", language: "", stars: 1),
-            .init(id: 4, avatarURL: "", name: "", description: "", language: "", stars: 1),
-            .init(id: 5, avatarURL: "", name: "", description: "", language: "", stars: 1),
-            .init(id: 6, avatarURL: "", name: "", description: "", language: "", stars: 1),
-        ])
-    }
 }

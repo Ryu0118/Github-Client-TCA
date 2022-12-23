@@ -11,10 +11,16 @@ import Infrastructure
 
 public struct AppCore: ReducerProtocol {
     public struct State: Equatable {
-        @BindableState public var text = ""
-        public var items = [GithubResponse.Item]()
+        @BindableState public var text: String
+        public var items: [GithubResponse.Item]
         
-        public init() {}
+        public init(
+            text: String = "",
+            items: [GithubResponse.Item] = []
+        ) {
+            self.text = text
+            self.items = items
+        }
     }
     
     public enum Action: Equatable, BindableAction {
@@ -61,15 +67,4 @@ public struct AppCore: ReducerProtocol {
         
     }
 
-}
-
-public enum GithubRepositoryKey: DependencyKey {
-    public static let liveValue: GithubRepository = GithubRepositoryImpl()
-}
-
-extension DependencyValues {
-    var githubRepository: GithubRepository {
-        get { self[GithubRepositoryKey.self] }
-        set { self[GithubRepositoryKey.self] = newValue }
-    }
 }

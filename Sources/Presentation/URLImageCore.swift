@@ -42,14 +42,3 @@ struct URLImageCore: ReducerProtocol {
         }
     }
 }
-
-private struct URLImageKey: DependencyKey {
-    static let liveValue: ImageFetcher = ImageFetcherImpl.shared
-}
-
-extension DependencyValues {
-    var imageFetcher: ImageFetcher {
-        get { self[URLImageKey.self] }
-        set { self[URLImageKey.self] = newValue }
-    }
-}

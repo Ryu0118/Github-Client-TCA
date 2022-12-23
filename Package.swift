@@ -18,7 +18,11 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Domain"
+            name: "Domain",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-composable-architecture"),
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+            ]
         ),
         .target(
             name: "Presentation",
@@ -33,6 +37,7 @@ let package = Package(
             name: "Infrastructure",
             dependencies: [
                 "Domain",
+                .product(name: "Dependencies", package: "swift-composable-architecture"),
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ]
         ),
