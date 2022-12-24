@@ -7,7 +7,6 @@
 
 import ComposableArchitecture
 import Domain
-import Infrastructure
 
 public struct AppCore: ReducerProtocol {
     public struct State: Equatable {

@@ -8,7 +8,6 @@
 import Foundation
 import ComposableArchitecture
 import Domain
-import Infrastructure
 import class UIKit.UIImage
 
 struct URLImageCore: ReducerProtocol {
