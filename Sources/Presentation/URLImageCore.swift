@@ -11,16 +11,6 @@ import Domain
 import class UIKit.UIImage
 
 struct URLImageCore: ReducerProtocol {
-    struct State: Equatable {
-        var image: UIImage = UIImage()
-        let url: URL
-    }
-    
-    enum Action: Equatable {
-        case onAppear
-        case imageResponse(TaskResult<UIImage>)
-    }
-    
     @Dependency(\.imageFetcher) var imageFetcher
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
@@ -39,5 +29,32 @@ struct URLImageCore: ReducerProtocol {
         case .imageResponse(_):
             return .none
         }
+    }
+}
+
+extension URLImageCore {
+    struct State: Equatable {
+        var image: UIImage = UIImage()
+        let url: URL
+        
+        @Dependency(\.imageFetcher) var imageFetcher
+        
+        init(url: URL) {
+            self.url = url
+            //alertタップ時Viewが再更新されるのでonAppearが呼ばれず画像が消えてしまう。
+            //このバグを解消するためにimageFetcherにcacheされてる画像をinitialize時に使用
+            if let cachedImage = imageFetcher.fetchCachedImage(with: url) {
+                self.image = cachedImage
+            }
+        }
+        
+        static func == (lhs: URLImageCore.State, rhs: URLImageCore.State) -> Bool {
+            lhs.image == rhs.image && lhs.url == rhs.url
+        }
+    }
+    
+    enum Action: Equatable {
+        case onAppear
+        case imageResponse(TaskResult<UIImage>)
     }
 }
