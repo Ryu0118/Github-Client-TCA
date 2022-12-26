@@ -17,4 +17,5 @@ public protocol GithubAPIRequest {
     var path: String { get }
     var method: HTTPMethod { get }
     var queryItems: [URLQueryItem] { get }
+    //requestBodyが必要であればここにプロパティを追加
 }
