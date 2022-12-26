@@ -42,9 +42,12 @@ public struct CellReducer: ReducerProtocol {
                     return TextState(alertText)
                 }()
             )
+            
             return .none
             
         case .cancelTapped:
+            state.alert = nil
+            
             return .none
         }
     }
