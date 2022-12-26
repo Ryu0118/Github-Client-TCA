@@ -20,8 +20,10 @@ public struct ContentView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationView {
                 List {
-                    ForEach(viewStore.state.items) { item in
-                        GithubRepositoryCell(item: item)
+                    ForEachStore(
+                        store.scope(state: \.cellStates, action: AppCore.Action.cell(id:action:))
+                    ) { cellStore in
+                        GithubRepositoryCell(store: cellStore)
                     }
                 }
             }
@@ -39,7 +41,7 @@ public struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(
-            store: .init(initialState: AppCore.State(), reducer: AppCore())
+            store: .init(initialState: AppCore.State(text: "", cellStates: []), reducer: AppCore())
         )
     }
 }

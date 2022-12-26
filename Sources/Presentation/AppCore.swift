@@ -5,30 +5,13 @@
 //  Created by ryunosuke.shibuya on 2022/12/19.
 //
 
+import Foundation
 import ComposableArchitecture
 import Domain
 
 public struct AppCore: ReducerProtocol {
-    public struct State: Equatable {
-        @BindableState public var text: String
-        public var items: [GithubResponse.Item]
-        
-        public init(
-            text: String = "",
-            items: [GithubResponse.Item] = []
-        ) {
-            self.text = text
-            self.items = items
-        }
-    }
-    
-    public enum Action: Equatable, BindableAction {
-        case searchButtonTapped
-        case githubResponse(TaskResult<[GithubResponse.Item]>)
-        case binding(BindingAction<State>)
-    }
-    
     @Dependency(\.githubRepository) var githubRepository
+    @Dependency(\.uuid) var uuid
     
     public init() {}
     
@@ -45,7 +28,9 @@ public struct AppCore: ReducerProtocol {
                 }
                 
             case let .githubResponse(.success(items)):
-                state.items = items
+                let states = items.map { CellReducer.State(id: uuid.callAsFunction(), item: $0) }
+                state.cellStates = IdentifiedArrayOf(uniqueElements: states)
+                
                 return .none
                 
             case let .githubResponse(.failure(error)):
@@ -54,16 +39,45 @@ public struct AppCore: ReducerProtocol {
                 
             case .binding(\.$text):
                 if state.text.isEmpty { //SearchBarのtextがisEmptyになった場合, Listを空に
-                    state.items = []
+                    state.cellStates = []
                 }
                 
+                return .none
+                
+            case .cell:
                 return .none
                 
             case .binding:
                 return .none
             }
         }
+        .forEach(\.cellStates, action: /Action.cell(id:action:)) {
+            CellReducer()
+        }
         
     }
 
+}
+
+// MARK: - State & Action
+extension AppCore {
+    public struct State: Equatable {
+        @BindableState public var text: String
+        public var cellStates: IdentifiedArrayOf<CellReducer.State>
+        
+        public init(
+            text: String = "",
+            cellStates: IdentifiedArrayOf<CellReducer.State> = []
+        ) {
+            self.text = text
+            self.cellStates = cellStates
+        }
+    }
+    
+    public enum Action: Equatable, BindableAction {
+        case searchButtonTapped
+        case githubResponse(TaskResult<[GithubResponse.Item]>)
+        case cell(id: UUID, action: CellReducer.Action)
+        case binding(BindingAction<State>)
+    }
 }
