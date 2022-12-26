@@ -10,4 +10,5 @@ import class UIKit.UIImage
 
 public protocol ImageFetcher {
     func fetchImage(with url: URL) async throws -> UIImage
+    func fetchCachedImage(with url: URL) -> UIImage?
 }

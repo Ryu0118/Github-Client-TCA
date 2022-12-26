@@ -31,6 +31,10 @@ public final class ImageFetcherImpl: ImageFetcher {
         
         return image
     }
+    
+    public func fetchCachedImage(with url: URL) -> UIImage? {
+        cache[url]
+    }
 }
 
 enum ImageFetcherError: Error {

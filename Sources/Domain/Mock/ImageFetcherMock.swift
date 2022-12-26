@@ -12,4 +12,8 @@ final class ImageFetcherMock: ImageFetcher {
     func fetchImage(with url: URL) async throws -> UIImage {
         UIImage(systemName: "star")!
     }
+    
+    func fetchCachedImage(with url: URL) -> UIImage? {
+        UIImage()
+    }
 }
