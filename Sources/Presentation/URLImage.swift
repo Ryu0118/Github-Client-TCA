@@ -16,6 +16,9 @@ struct URLImage: View {
             initialState: URLImageReducer.State(url: url),
             reducer: URLImageReducer()
         )
+        
+        ViewStore(store)
+            .send(.viewInitialized) //Viewが再描画されたときにImageが表示されないバグを修正(onAppearが呼ばれないため起こった)
     }
     
     var body: some View {

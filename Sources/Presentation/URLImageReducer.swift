@@ -22,6 +22,11 @@ struct URLImageReducer: ReducerProtocol {
                 )
             }
             
+        case .viewInitialized:
+            state.image = imageFetcher.fetchCachedImage(with: state.url) ?? UIImage()
+            
+            return .none
+            
         case let .imageResponse(.success(image)):
             state.image = image
             return .none
@@ -36,25 +41,11 @@ extension URLImageReducer {
     struct State: Equatable {
         var image: UIImage = UIImage()
         let url: URL
-        
-        @Dependency(\.imageFetcher) var imageFetcher
-        
-        init(url: URL) {
-            self.url = url
-            //alertタップ時Viewが再更新されるのでonAppearが呼ばれず画像が消えてしまう。
-            //このバグを解消するためにimageFetcherにcacheされてる画像をinitialize時に使用
-            if let cachedImage = imageFetcher.fetchCachedImage(with: url) {
-                self.image = cachedImage
-            }
-        }
-        
-        static func == (lhs: URLImageReducer.State, rhs: URLImageReducer.State) -> Bool {
-            lhs.image == rhs.image && lhs.url == rhs.url
-        }
     }
     
     enum Action: Equatable {
         case onAppear
+        case viewInitialized
         case imageResponse(TaskResult<UIImage>)
     }
 }
