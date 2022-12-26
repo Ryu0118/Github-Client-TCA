@@ -18,22 +18,35 @@ public struct ContentView: View {
     
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            NavigationView {
-                List {
-                    ForEachStore(
-                        store.scope(state: \.cellStates, action: AppReducer.Action.cell(id:action:))
-                    ) { cellStore in
-                        GithubRepositoryCell(store: cellStore)
-                    }
+            ZStack {
+                list(viewStore)
+                
+                if viewStore.isLoading {
+                    ProgressView()
+                        .scaleEffect(2)
                 }
             }
-            .searchable(
-                text: viewStore.binding(\.$text),
-                prompt: "リポジトリを検索"
-            )
-            .onSubmit(of: .search) {
-                viewStore.send(.searchButtonTapped)
+        }
+    }
+    
+    func list(
+        _ viewStore: ViewStore<AppReducer.State, AppReducer.Action>
+    ) -> some View {
+        NavigationView {
+            List {
+                ForEachStore(
+                    store.scope(state: \.cellStates, action: AppReducer.Action.cell(id:action:))
+                ) { cellStore in
+                    GithubRepositoryCell(store: cellStore)
+                }
             }
+        }
+        .searchable(
+            text: viewStore.binding(\.$text),
+            prompt: "リポジトリを検索"
+        )
+        .onSubmit(of: .search) {
+            viewStore.send(.searchButtonTapped)
         }
     }
 }

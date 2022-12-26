@@ -21,6 +21,8 @@ public struct AppReducer: ReducerProtocol {
         Reduce { state, action in
             switch action {
             case .searchButtonTapped:
+                state.isLoading = true
+                
                 return .task { [query = state.text] in
                     await .githubResponse(
                         TaskResult { try await githubRepository.fetchRepositories(query: query).items }
@@ -30,11 +32,14 @@ public struct AppReducer: ReducerProtocol {
             case let .githubResponse(.success(items)):
                 let states = items.map { CellReducer.State(id: uuid.callAsFunction(), item: $0) }
                 state.cellStates = IdentifiedArrayOf(uniqueElements: states)
+                state.isLoading = false
                 
                 return .none
                 
             case let .githubResponse(.failure(error)):
                 print(error)
+                state.isLoading = false
+                
                 return .none
                 
             case .binding(\.$text):
@@ -63,13 +68,16 @@ public struct AppReducer: ReducerProtocol {
 extension AppReducer {
     public struct State: Equatable {
         @BindableState public var text: String
+        public var isLoading: Bool
         public var cellStates: IdentifiedArrayOf<CellReducer.State>
         
         public init(
             text: String = "",
+            isLoading: Bool = false,
             cellStates: IdentifiedArrayOf<CellReducer.State> = []
         ) {
             self.text = text
+            self.isLoading = isLoading
             self.cellStates = cellStates
         }
     }
