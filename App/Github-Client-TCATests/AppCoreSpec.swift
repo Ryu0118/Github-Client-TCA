@@ -21,9 +21,17 @@ final class AppCoreSpec: QuickSpec {
                     reducer: AppCore()
                 )
                 
+                store.dependencies.uuid = .incrementing
+                
                 await store.send(.searchButtonTapped)
                 await store.receive(.githubResponse(.success(GithubResponse.mock().items))) { state in
-                    state.items = GithubResponse.mock().items
+                    let states = GithubResponse.mock().items.enumerated().map {
+                        CellReducer.State(
+                            id: UUID(uuidString: "00000000-0000-0000-0000-00000000000\($0)")!,
+                            item: $1
+                        )
+                    }
+                    state.cellStates = IdentifiedArrayOf(uniqueElements: states)
                 }
             }
             
@@ -46,7 +54,7 @@ final class AppCoreSpec: QuickSpec {
                 
                 store.send(.set(\.$text, "")) {
                     $0.text = ""
-                    $0.items = []
+                    $0.cellStates = []
                 }
             }
         }
