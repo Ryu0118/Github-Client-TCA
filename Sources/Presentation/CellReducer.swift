@@ -46,7 +46,7 @@ public struct CellReducer: ReducerProtocol {
             return .none
             
         case .cancelTapped:
-            state.alert = nil
+            state.alert = nil //同じCellを2回タップした際に違う文字が表示されるバグを修正
             
             return .none
         }
