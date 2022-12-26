@@ -17,8 +17,8 @@ final class URLImageCoreSpec: QuickSpec {
         context("validate urlImageCore reducer behavior") {
             it(".setImageした時state.urlに値が格納されるか") { @MainActor in
                 let store = TestStore(
-                    initialState: URLImageCore.State(url: URL(string: "https://github.com/Ryu0118.png")!),
-                    reducer: URLImageCore()
+                    initialState: URLImageReducer.State(url: URL(string: "https://github.com/Ryu0118.png")!),
+                    reducer: URLImageReducer()
                 )
                 
                 await store.send(.onAppear)

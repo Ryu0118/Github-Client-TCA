@@ -17,8 +17,8 @@ final class AppCoreSpec: QuickSpec {
         context("validate appCore behavior") {
             it("state.itemsにGithubResponseのmockのitemsが格納されているか") { @MainActor in
                 let store = TestStore(
-                    initialState: AppCore.State(),
-                    reducer: AppCore()
+                    initialState: AppReducer.State(),
+                    reducer: AppReducer()
                 )
                 
                 store.dependencies.uuid = .incrementing
@@ -37,8 +37,8 @@ final class AppCoreSpec: QuickSpec {
             
             it("textがbindできているかどうか") { @MainActor in
                 let store = TestStore(
-                    initialState: AppCore.State(),
-                    reducer: AppCore()
+                    initialState: AppReducer.State(),
+                    reducer: AppReducer()
                 )
                 
                 store.send(.set(\.$text, "Test")) {
@@ -48,8 +48,8 @@ final class AppCoreSpec: QuickSpec {
             
             it("textが空の時にitemsが空になっているか") { @MainActor in
                 let store = TestStore(
-                    initialState: AppCore.State(text: "Test"),
-                    reducer: AppCore()
+                    initialState: AppReducer.State(text: "Test"),
+                    reducer: AppReducer()
                 )
                 
                 store.send(.set(\.$text, "")) {

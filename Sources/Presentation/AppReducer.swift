@@ -1,5 +1,5 @@
 //
-//  AppCore.swift
+//  AppReducer.swift
 //  Github-Client-TCA
 //
 //  Created by ryunosuke.shibuya on 2022/12/19.
@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 import Domain
 
-public struct AppCore: ReducerProtocol {
+public struct AppReducer: ReducerProtocol {
     @Dependency(\.githubRepository) var githubRepository
     @Dependency(\.uuid) var uuid
     
@@ -60,7 +60,7 @@ public struct AppCore: ReducerProtocol {
 }
 
 // MARK: - State & Action
-extension AppCore {
+extension AppReducer {
     public struct State: Equatable {
         @BindableState public var text: String
         public var cellStates: IdentifiedArrayOf<CellReducer.State>

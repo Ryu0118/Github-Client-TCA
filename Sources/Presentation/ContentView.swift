@@ -10,9 +10,9 @@ import ComposableArchitecture
 import Domain
 
 public struct ContentView: View {
-    public let store: StoreOf<AppCore>
+    public let store: StoreOf<AppReducer>
     
-    public init(store: StoreOf<AppCore>) {
+    public init(store: StoreOf<AppReducer>) {
         self.store = store
     }
     
@@ -21,7 +21,7 @@ public struct ContentView: View {
             NavigationView {
                 List {
                     ForEachStore(
-                        store.scope(state: \.cellStates, action: AppCore.Action.cell(id:action:))
+                        store.scope(state: \.cellStates, action: AppReducer.Action.cell(id:action:))
                     ) { cellStore in
                         GithubRepositoryCell(store: cellStore)
                     }
@@ -41,7 +41,7 @@ public struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(
-            store: .init(initialState: AppCore.State(text: "", cellStates: []), reducer: AppCore())
+            store: .init(initialState: AppReducer.State(text: "", cellStates: []), reducer: AppReducer())
         )
     }
 }

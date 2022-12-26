@@ -1,5 +1,5 @@
 //
-//  URLImageCore.swift
+//  URLImageReducer.swift
 //  Github-Client-TCA
 //
 //  Created by ryunosuke.shibuya on 2022/12/19.
@@ -10,7 +10,7 @@ import ComposableArchitecture
 import Domain
 import class UIKit.UIImage
 
-struct URLImageCore: ReducerProtocol {
+struct URLImageReducer: ReducerProtocol {
     @Dependency(\.imageFetcher) var imageFetcher
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
@@ -32,7 +32,7 @@ struct URLImageCore: ReducerProtocol {
     }
 }
 
-extension URLImageCore {
+extension URLImageReducer {
     struct State: Equatable {
         var image: UIImage = UIImage()
         let url: URL
@@ -48,7 +48,7 @@ extension URLImageCore {
             }
         }
         
-        static func == (lhs: URLImageCore.State, rhs: URLImageCore.State) -> Bool {
+        static func == (lhs: URLImageReducer.State, rhs: URLImageReducer.State) -> Bool {
             lhs.image == rhs.image && lhs.url == rhs.url
         }
     }

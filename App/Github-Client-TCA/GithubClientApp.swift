@@ -14,9 +14,9 @@ struct GithubClientApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(
-                store: StoreOf<AppCore>(
-                    initialState: AppCore.State(),
-                    reducer: AppCore()
+                store: StoreOf<AppReducer>(
+                    initialState: AppReducer.State(),
+                    reducer: AppReducer()
                 )
             )
         }

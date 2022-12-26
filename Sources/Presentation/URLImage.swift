@@ -9,12 +9,12 @@ import SwiftUI
 import ComposableArchitecture
 
 struct URLImage: View {
-    let store: StoreOf<URLImageCore>
+    let store: StoreOf<URLImageReducer>
     
     init(url: URL) {
-        store = StoreOf<URLImageCore>(
-            initialState: URLImageCore.State(url: url),
-            reducer: URLImageCore()
+        store = StoreOf<URLImageReducer>(
+            initialState: URLImageReducer.State(url: url),
+            reducer: URLImageReducer()
         )
     }
     
